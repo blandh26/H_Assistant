@@ -1,0 +1,428 @@
+﻿<local:BaseUserControl
+    x:Class="H_Assistant.UserControl.UcMainContent"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:convert="clr-namespace:H_Assistant.Converts"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:H_Assistant.UserControl"
+    xmlns:localControls="clr-namespace:H_Assistant.UserControl.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:H_Assistant.Models"
+    xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+    xmlns:userControl="clr-namespace:H_Assistant.UserControl"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <!--  按键/命令监听绑定  -->
+    <!--<Window.InputBindings>
+        <KeyBinding Command="Copy" Gesture="Control + C" />
+    </Window.InputBindings>-->
+    <UserControl.CommandBindings>
+        <CommandBinding Command="Copy" Executed="MenuCopyName_OnClick" />
+    </UserControl.CommandBindings>
+    <!--  按键监/命令听绑定  -->
+    <UserControl.Resources>
+        <convert:DisplayNameConvert x:Key="DisplayNameConvert" />
+    </UserControl.Resources>
+    <Grid>
+        <!--  Main布局  -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition
+                Width="3.3*"
+                MinWidth="200"
+                MaxWidth="450" />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="6.6*" />
+        </Grid.ColumnDefinitions>
+        <!--  Main布局  -->
+
+        <!--  左侧菜单  -->
+        <DockPanel Grid.Row="0" Grid.Column="0">
+            <hc:SimplePanel>
+                <Border
+                    Margin="5,5,0,5"
+                    Background="{DynamicResource RegionBrush}"
+                    CornerRadius="{Binding CornerRadius}">
+                    <Grid
+                        Height="Auto"
+                        Margin="5"
+                        Background="Transparent">
+                        <TextBox x:Name="HidSelectDatabase" Visibility="Hidden" />
+                        <StackPanel Margin="3,3,3,0">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="8*" />
+                                    <ColumnDefinition Width="1*" MinWidth="30" />
+                                </Grid.ColumnDefinitions>
+                                <ComboBox
+                                    x:Name="SelectDatabase"
+                                    Height="30"
+                                    VerticalAlignment="Top"
+                                    HorizontalContentAlignment="Stretch"
+                                    hc:BorderElement.CornerRadius="5"
+                                    hc:InfoElement.Placeholder="{DynamicResource PleaseSelectDatabase}"
+                                    Background="#F4F5F7"
+                                    BorderThickness="0"
+                                    Cursor="Hand"
+                                    IsTextSearchEnabled="True"
+                                    SelectionChanged="SelectDatabase_OnSelectionChanged"
+                                    Style="{StaticResource ComboBoxExtend}"
+                                    Text="{Binding DbName}">
+                                    <ComboBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <StackPanel VerticalAlignment="Center" Orientation="Horizontal">
+                                                <Image
+                                                    Width="11"
+                                                    Height="15"
+                                                    Source="/H_Assistant;component/Resources/Img/dataBase.ico" />
+                                                <TextBlock
+                                                    Margin="5,0,0,0"
+                                                    HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Text="{Binding DbName}" />
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </ComboBox.ItemTemplate>
+                                </ComboBox>
+                                <Button
+                                    Name="BtnFresh"
+                                    Grid.Column="1"
+                                    Margin="0,0,0,0"
+                                    Padding="4"
+                                    VerticalAlignment="Top"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Click="BtnFresh_OnClick"
+                                    Cursor="Hand">
+                                    <Button.Content>
+                                        <Image Source="/H_Assistant;component/Resources/Img/Refresh.png" Stretch="Fill" />
+                                    </Button.Content>
+                                </Button>
+                            </Grid>
+                            <hc:SearchBar
+                                x:Name="SearchMenu"
+                                Height="30"
+                                Margin="0,5,0,0"
+                                Padding="5,0,5,0"
+                                VerticalAlignment="Top"
+                                HorizontalContentAlignment="Stretch"
+                                hc:BorderElement.CornerRadius="5"
+                                hc:InfoElement.Placeholder="{DynamicResource Table_View_Procedure}"
+                                Background="#F4F5F7"
+                                BorderThickness="0"
+                                FontSize="13"
+                                ShowClearButton="True"
+                                Style="{StaticResource SearchBarPlus}"
+                                TextChanged="SearchMenu_OnTextChanged" />
+                        </StackPanel>
+                        <TabControl
+                            x:Name="TabLeftType"
+                            Margin="0,70,0,40"
+                            BorderThickness="0"
+                            SelectionChanged="TabLeftType_OnSelectionChanged"
+                            Style="{StaticResource TabControlInLine}">
+                            <TabItem
+                                x:Name="TabAllData"
+                                Cursor="Hand"
+                                Header="{DynamicResource All}"
+                                IsSelected="True" />
+                            <TabItem
+                                x:Name="TabGroupData"
+                                Cursor="Hand"
+                                Header="{DynamicResource Group}"
+                                IsSelected="False" />
+                            <TabItem
+                                x:Name="TabTagData"
+                                Cursor="Hand"
+                                Header="{DynamicResource Label}"
+                                IsSelected="False" />
+                        </TabControl>
+                        <TreeView
+                            x:Name="TreeViewTables"
+                            Margin="0,103,0,0"
+                            VerticalAlignment="Top"
+                            BorderThickness="0"
+                            ItemsSource="{Binding TreeViewData}"
+                            SelectedItemChanged="SelectedTable_OnClick">
+                            <TreeView.ItemContainerStyle>
+                                <Style BasedOn="{StaticResource TreeViewItemBaseStyle}" TargetType="{x:Type TreeViewItem}">
+                                    <Setter Property="IsExpanded" Value="{Binding IsExpanded}" />
+                                    <Setter Property="FontWeight" Value="{Binding FontWeight}" />
+                                    <Setter Property="FontSize" Value="12" />
+                                    <Setter Property="Padding" Value="0,0,5,0" />
+                                    <Setter Property="Visibility" Value="{Binding Visibility}" />
+                                    <!--<Setter Property="Foreground" Value="{Binding TextColor}" />-->
+                                    <Setter Property="Foreground" Value="#262e3e" />
+                                    <Setter Property="Cursor" Value="Hand" />
+                                    <!--  禁止水平滚动条自动滚动  -->
+                                    <EventSetter Event="RequestBringIntoView" Handler="EventSetter_OnHandler" />
+                                    <EventSetter Event="PreviewMouseRightButtonDown" Handler="EventSetter_OnHandler" />
+                                </Style>
+                            </TreeView.ItemContainerStyle>
+                            <TreeView.ContextMenu>
+                                <!--  右键菜单  -->
+                                <ContextMenu Name="TreeContextMenu" Visibility="Visible">
+                                    <ContextMenu.ItemContainerStyle>
+                                        <Style BasedOn="{StaticResource MenuItemBaseStyle}" TargetType="MenuItem">
+                                            <Setter Property="Width" Value="180" />
+                                        </Style>
+                                    </ContextMenu.ItemContainerStyle>
+                                    <MenuItem
+                                        x:Name="MenuCopyName"
+                                        VerticalAlignment="Center"
+                                        Click="MenuCopyName_OnClick"
+                                        Header="{DynamicResource CopyName}">
+                                        <MenuItem.Icon>
+                                            <fa:FontAwesome
+                                                VerticalAlignment="Center"
+                                                FontSize="14"
+                                                Foreground="#e9af20"
+                                                Icon="Clone" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem
+                                        x:Name="MenuSetTag"
+                                        VerticalAlignment="Center"
+                                        Click="MenuSetTag_OnClick"
+                                        Header="{DynamicResource SetLabel}">
+                                        <MenuItem.Icon>
+                                            <fa:FontAwesome
+                                                VerticalAlignment="Center"
+                                                Foreground="#15c8c4"
+                                                Icon="Tags" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem
+                                        x:Name="MenuSetGroup"
+                                        VerticalAlignment="Center"
+                                        Click="MenuSetGroup_OnClick"
+                                        Header="{DynamicResource SetGroup}">
+                                        <MenuItem.Icon>
+                                            <fa:FontAwesome
+                                                VerticalAlignment="Center"
+                                                Foreground="#fdab03"
+                                                Icon="Group" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem
+                                        x:Name="MenuExportDoc"
+                                        VerticalAlignment="Center"
+                                        Click="MenuExportDoc_OnClick"
+                                        Header="{DynamicResource ExportDocument}">
+                                        <MenuItem.Icon>
+                                            <fa:FontAwesome
+                                                VerticalAlignment="Center"
+                                                FontSize="14"
+                                                Foreground="#2db84d"
+                                                Icon="ShareSquareOutline" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem
+                                        x:Name="MenuExportTemplate"
+                                        VerticalAlignment="Center"
+                                        Click="MenuExportTemplate_OnClick"
+                                        Header="{DynamicResource ExportTemplate}">
+                                        <MenuItem.Icon>
+                                            <fa:FontAwesome
+                                                VerticalAlignment="Center"
+                                                FontSize="14"
+                                                Foreground="#006eff"
+                                                Icon="File" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem
+                                        x:Name="MenuExportDLL"
+                                        VerticalAlignment="Center"
+                                        Click="MenuExportDLL_OnClick"
+                                        Header="{DynamicResource GenerateDll}">
+                                        <MenuItem.Icon>
+                                            <fa:FontAwesome
+                                                VerticalAlignment="Center"
+                                                FontSize="14"
+                                                Foreground="#fdab03"
+                                                Icon="Key" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem
+                                        x:Name="MenuCreateSQL"
+                                        VerticalAlignment="Center"
+                                        Click="MenuCreateSQL_OnClick"
+                                        Header="{DynamicResource GenerateSql}">
+                                        <MenuItem.Icon>
+                                            <fa:FontAwesome
+                                                VerticalAlignment="Center"
+                                                FontSize="14"
+                                                Foreground="#1890ff"
+                                                Icon="Code" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <MenuItem
+                                        x:Name="MenuCreateTest"
+                                        VerticalAlignment="Center"
+                                        Click="MenuCreateTest_OnClick"
+                                        Header="{DynamicResource BuildConfiguration}">
+                                        <MenuItem.Icon>
+                                            <fa:FontAwesome
+                                                VerticalAlignment="Center"
+                                                FontSize="14"
+                                                Foreground="#BDB76B"
+                                                Icon="Cogs" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>
+                                    <!--<MenuItem
+                                        x:Name="MenuCreateEntity"
+                                        VerticalAlignment="Center"
+                                        Click="MenuCreateEntity_Click"
+                                        Header="生成实体">
+                                        <MenuItem.Icon>
+                                            <fa:FontAwesome
+                                                VerticalAlignment="Center"
+                                                FontSize="14"
+                                                Foreground="#1890ff"
+                                                Icon="Cube" />
+                                        </MenuItem.Icon>
+                                    </MenuItem>-->
+                                </ContextMenu>
+                            </TreeView.ContextMenu>
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate DataType="{x:Type models:TreeNodeItem}" ItemsSource="{Binding Children}">
+                                    <Grid>
+                                        <hc:SimpleStackPanel HorizontalAlignment="Left" Orientation="Horizontal">
+                                            <svgc:SvgViewbox
+                                                Width="12"
+                                                Height="12"
+                                                Margin="0,0,5,0"
+                                                HorizontalAlignment="Left"
+                                                Source="{Binding Icon}" />
+
+                                            <TextBlock
+                                                x:Name="TextName"
+                                                VerticalAlignment="Center"
+                                                FontSize="12"
+                                                Text="{Binding DisplayName}"
+                                                ToolTip="{Binding DisplayName}"
+                                                Visibility="{Binding IsShowComment, Converter={StaticResource DisplayNameConvert}}" />
+
+                                            <TextBlock
+                                                x:Name="TextNameComment"
+                                                ToolTip="{Binding DisplayName}"
+                                                Visibility="{Binding IsShowComment}">
+                                                <TextBlock.Text>
+                                                    <MultiBinding StringFormat="{}{0} {1}">
+                                                        <Binding Path="DisplayName" />
+                                                        <Binding Path="Comment" />
+                                                    </MultiBinding>
+                                                </TextBlock.Text>
+                                            </TextBlock>
+                                        </hc:SimpleStackPanel>
+                                        <hc:SimpleStackPanel
+                                            Margin="0,0,8,0"
+                                            HorizontalAlignment="Right"
+                                            Visibility="{Binding IsShowCount}">
+                                            <Border Background="#fffffe" CornerRadius="3">
+                                                <TextBlock
+                                                    Margin="5,1,5,1"
+                                                    VerticalAlignment="Center"
+                                                    Foreground="{StaticResource ThirdlyTextBrush}"
+                                                    Text="{Binding ChildrenCount}" />
+                                            </Border>
+                                        </hc:SimpleStackPanel>
+                                    </Grid>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                        <Grid
+                            x:Name="NoDataText"
+                            Margin="0,105,0,5"
+                            HorizontalAlignment="Stretch"
+                            Background="White"
+                            Cursor="Arrow">
+                            <localControls:NoDataArea
+                                x:Name="NoDataAreaText"
+                                Margin="0"
+                                HorizontalAlignment="Center"
+                                ShowType="All" />
+                            <Button
+                                x:Name="BtnNoData"
+                                Margin="0,150,0,0"
+                                Background="#f4f5f7"
+                                BorderThickness="0"
+                                Click="BtnNoData_OnClick"
+                                Content="{DynamicResource CreateGroup}"
+                                Cursor="Hand"
+                                Visibility="Collapsed" />
+                        </Grid>
+                        <!--  数据加载Loading  -->
+                        <localControls:Loading
+                            x:Name="LoadingLine"
+                            Margin="-5"
+                            BackgroundOpacity="0.2"
+                            Visibility="Collapsed" />
+                    </Grid>
+                </Border>
+            </hc:SimplePanel>
+        </DockPanel>
+
+        <!--  分割线  -->
+        <GridSplitter
+            Grid.Row="0"
+            Grid.Column="1"
+            Width="5"
+            Margin="0,5,0,5"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Stretch"
+            Background="Transparent" />
+
+        <!--  主内容  -->
+        <DockPanel Grid.Row="0" Grid.Column="2">
+            <Grid Margin="0,5,5,5">
+                <Border Background="White" CornerRadius="{Binding CornerRadius}">
+                    <svgc:SvgViewbox
+                        Width="350"
+                        Height="325"
+                        Source="/H_Assistant;component/Resources/svg/undraw/undraw_project_team_lc5a.svg" />
+                </Border>
+                <!--  单选项卡  -->
+                <userControl:UcMainW x:Name="MainW" Visibility="Collapsed" />
+                <!--  多选项卡  -->
+                <hc:TabControl
+                    Name="MainTabW"
+                    IsAnimationEnabled="True"
+                    IsDraggable="True"
+                    IsTabFillEnabled="False"
+                    ItemsSource="{Binding TabItemData}"
+                    SelectionChanged="MainTabW_OnSelectionChanged"
+                    ShowCloseButton="True"
+                    Visibility="Collapsed">
+                    <hc:TabControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <svgc:SvgViewbox
+                                    Width="12"
+                                    Height="12"
+                                    Margin="0,0,5,0"
+                                    HorizontalAlignment="Left"
+                                    Source="{Binding Icon}" />
+                                <TextBlock
+                                    Height="20"
+                                    Margin="16,5,0,0"
+                                    Text="{Binding DisplayName}"
+                                    ToolTip="{Binding DisplayName}" />
+                            </Grid>
+                        </DataTemplate>
+                    </hc:TabControl.ItemTemplate>
+                    <hc:TabControl.ContentTemplate>
+                        <DataTemplate>
+                            <UserControl Content="{Binding MainW}" />
+                        </DataTemplate>
+                    </hc:TabControl.ContentTemplate>
+                </hc:TabControl>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</local:BaseUserControl>

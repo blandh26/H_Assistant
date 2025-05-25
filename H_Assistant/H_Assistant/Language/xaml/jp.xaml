@@ -1,0 +1,243 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:s="clr-namespace:System;assembly=mscorlib"
+                     xmlns:local="clr-namespace:H_Assistant">
+    <!--MainWindow-->
+    <s:String x:Key="Title">H_Assistant2</s:String>
+    <s:String x:Key="Connection">选择连接2</s:String>
+    <s:String x:Key="File">文件2</s:String>
+    <s:String x:Key="NewConnection">新建连接2</s:String>
+    <s:String x:Key="ImportNotes">导入备注2</s:String>
+    <s:String x:Key="ExportDocument">导出文档2</s:String>
+    <s:String x:Key="Tools">工具2</s:String>
+    <s:String x:Key="GroupManagement">分组管理2</s:String>
+    <s:String x:Key="LabelManagement">标签管理2</s:String>
+    <s:String x:Key="BuildConfiguration">生成配置2</s:String>
+    <s:String x:Key="Seting">设置2</s:String>
+    <s:String x:Key="Help">帮助2</s:String>
+    <s:String x:Key="CheckUpdates">检查更新2</s:String>
+    <s:String x:Key="About">关于2</s:String>
+    <s:String x:Key="Topping">置顶2</s:String>
+    <s:String x:Key="Database">数据库2</s:String>
+    <s:String x:Key="Toolbox">工具箱2</s:String>
+    <s:String x:Key="Clipboard">剪贴板2</s:String>
+    <s:String x:Key="PortTitle">端口2</s:String>
+    <!--ConnectMainUC-->
+    <s:String x:Key="SelectConnectionType">选择连接类型2</s:String>
+    <!--MySqlUC、OracleUC、PostgreSQLUC、SQLServerUC-->
+    <s:String x:Key="MySQLConnectionsSetting">MySQL 连接设置2</s:String>
+    <s:String x:Key="OracleConnectionsSetting">Oracle 连接设置2</s:String>
+    <s:String x:Key="PostgreSQLConnectionsSetting">PostgreSQL 连接设置2</s:String>
+    <s:String x:Key="SQLServerConnectionsSetting">SQLServer 连接设置2</s:String>
+    <s:String x:Key="ConnectionName">连接名称2</s:String>
+    <s:String x:Key="ServerAddress">服务器地址2</s:String>
+    <s:String x:Key="ServerName">服务名称2</s:String>
+    <s:String x:Key="Authentication">身份验证2</s:String>
+    <s:String x:Key="WindowsAuthentication">Windows 身份验证2</s:String>
+    <s:String x:Key="SQLServerAuthentication">SQL Server 身份验证2</s:String>
+    <s:String x:Key="LoginName">登录名2</s:String>
+    <s:String x:Key="Password">密码2</s:String>
+    <s:String x:Key="DefaultDatabase">默认数据库2</s:String>
+    <s:String x:Key="PleaseConnectionName">请输入连接名称2</s:String>
+    <s:String x:Key="PleaseServerAddress">请输入服务器地址2</s:String>
+    <s:String x:Key="PleasePort">请输入端口号2</s:String>
+    <s:String x:Key="PleaseLoginName">请输入登录名2</s:String>
+    <s:String x:Key="PleasePassword">请输入密码2</s:String>
+    <s:String x:Key="PleaseDefaultDatabase">请选择默认数据库2</s:String>
+    <s:String x:Key="RefreshDatabase">刷新数据库2</s:String>
+    <!--ExportLoading-->
+    <s:String x:Key="ExportLoading">正在导出文档，请勿关闭窗口...2</s:String>
+    <!--Loading-->
+    <s:String x:Key="Loading">加载中...2</s:String>
+    <!--SqlScript-->
+    <s:String x:Key="BtnCopyScript">复制2</s:String>
+    <!--About-->
+    <s:String x:Key="DialogAbout">关于2</s:String>
+    <!--UcAddGroupObject-->
+    <s:String x:Key="Table">表2</s:String>
+    <s:String x:Key="View">视图2</s:String>
+    <s:String x:Key="Procedure">存储过程2</s:String>
+    <s:String x:Key="Table_View_Procedure">搜索表、视图、存储过程2</s:String>
+    <s:String x:Key="Operate">操作2</s:String>
+    <s:String x:Key="Add">添加2</s:String>
+    <s:String x:Key="TableName">表名2</s:String>
+    <s:String x:Key="TableComments">表注释2</s:String>
+    <s:String x:Key="Return">返回2</s:String>
+    <s:String x:Key="OK">确定2</s:String>
+    <!--UcGroupObjects-->
+    <s:String x:Key="Delete">删除2</s:String>
+    <s:String x:Key="Close">关闭2</s:String>
+    <!--UcMainColumns-->
+    <s:String x:Key="DataTable">数据表2</s:String>
+    <s:String x:Key="ColumnName_Remark">搜索列名/备注说明2</s:String>
+    <s:String x:Key="ColumnName">列名2</s:String>
+    <s:String x:Key="DataType">数据类型2</s:String>
+    <s:String x:Key="Length">长度2</s:String>
+    <s:String x:Key="Pk">主键2</s:String>
+    <s:String x:Key="IsIdentity">自增2</s:String>
+    <s:String x:Key="IsNullable">允许空2</s:String>
+    <s:String x:Key="DefaultValue">默认值2</s:String>
+    <s:String x:Key="Comment">备注说明2</s:String>
+    <s:String x:Key="SetLabel">设置标签2</s:String>
+    <s:String x:Key="SetGroup">设置分组2</s:String>
+    <s:String x:Key="GenerateSql">生成SQL2</s:String>
+    <s:String x:Key="TableData">表数据2</s:String>
+    <s:String x:Key="PleaseSelectColumnName">请选择列名2</s:String>
+    <s:String x:Key="PleaseColumnName">请输入列名2</s:String>
+    <s:String x:Key="SqlScript">SQL脚本2</s:String>
+    <s:String x:Key="Format">格式化2</s:String>
+    <s:String x:Key="CopyScript">复制脚本2</s:String>
+    <!--UcMainContent-->
+    <s:String x:Key="PleaseSelectDatabase">请选择数据库2</s:String>
+    <!--UcMainContent-->
+    <s:String x:Key="All">全部2</s:String>
+    <s:String x:Key="Group">分组2</s:String>
+    <s:String x:Key="Label">标签2</s:String>
+    <s:String x:Key="CopyName">复制名称2</s:String>
+    <s:String x:Key="GenerateDll">生成DLL2</s:String>
+    <s:String x:Key="CreateGroup">创建分组2</s:String>
+    <!--UcMainDbCompare-->
+    <s:String x:Key="SelectOldConnection">选择源连接2</s:String>
+    <s:String x:Key="SelectOldDb">选择源数据库2</s:String>
+    <s:String x:Key="StartContrast">开始比较2</s:String>
+    <s:String x:Key="ContrastTip">提示：该功能暂未开发完成，后面将持续完善2</s:String>
+    <s:String x:Key="SelectTargetConnection">选择目标连接2</s:String>
+    <s:String x:Key="SelectTargetDb">选择目标数据库2</s:String>
+    <s:String x:Key="OldObjectName">源对象名2</s:String>
+    <s:String x:Key="OldComment">源备注说明2</s:String>
+    <s:String x:Key="TargetObjectName">目标对象名2</s:String>
+    <s:String x:Key="TargetComment">目标备注说明2</s:String>
+    <s:String x:Key="StayTuned">敬请期待2</s:String>
+    <!--UcMainObjects-->
+    <s:String x:Key="SelectCheck">选择2</s:String>
+    <s:String x:Key="ObjectName">对象名2</s:String>
+    <s:String x:Key="CreateTime">创建时间2</s:String>
+    <s:String x:Key="UpdateTime">更新时间2</s:String>
+    <s:String x:Key="Select">查看2</s:String>
+    <s:String x:Key="ChkAll">全选2</s:String>
+    <!--UcTagObjects-->
+    <s:String x:Key="LabelSet">标签设置2</s:String>
+    <!--UcBase64-->
+    <s:String x:Key="Base64">Base64编码/解码2</s:String>
+    <s:String x:Key="Encode">编码（Encode）2</s:String>
+    <s:String x:Key="Decode">解码（Decode）2</s:String>
+    <s:String x:Key="Empty">清空2</s:String>
+    <s:String x:Key="Exchange">交换2</s:String>
+    <s:String x:Key="ConversionResults">转换结果2</s:String>
+    <s:String x:Key="Base64Result">Base64编码或解码后的结果：2</s:String>
+    <s:String x:Key="PleaseConversionContent">请输入转换内容2</s:String>
+    <s:String x:Key="PleaseConversionContentBase64">请输入要进行Base64编码或解码的字符2</s:String>
+    <!--UcBase64ToImg-->
+    <s:String x:Key="Base64ToImg">图片转Base642</s:String>
+    <s:String x:Key="StartDecoding">开始解码2</s:String>
+    <s:String x:Key="CopyCode">复制代码2</s:String>
+    <s:String x:Key="ImgToBase64Results">图片转Base64编码后的结果：2</s:String>
+    <!--UcHex-->
+    <s:String x:Key="Hex">Hex编码/解码2</s:String>
+    <s:String x:Key="PleaseConversionContentHex">请输入要进行Hex编码或解码的字符2</s:String>
+    <s:String x:Key="HexResult">Hex编码或解码后的结果：2</s:String>
+    <!--UcIcoToConvert-->
+    <s:String x:Key="IcoToConvert">Ico图标转换2</s:String>
+    <s:String x:Key="ComSize">图标尺寸2</s:String>
+    <s:String x:Key="ComItemCus">自定义2</s:String>
+    <s:String x:Key="CreateIcon">生成Ico图标2</s:String>
+    <!--UcJWT-->
+    <s:String x:Key="JWT">JWT解码器2</s:String>
+    <!--UcPort-->
+    <s:String x:Key="SearchPort">搜索端口号2</s:String>
+    <s:String x:Key="PortProtocol">端口协议2</s:String>
+    <s:String x:Key="ProcessID">进程ID2</s:String>
+    <s:String x:Key="ProcessName">进程名2</s:String>
+    <s:String x:Key="PortState">端口状态2</s:String>
+    <s:String x:Key="ProcessKill">结束进程2</s:String>
+    <!--UcTextInsert-->
+    <s:String x:Key="ContentAgo">内容文本插入字符后的结果2</s:String>
+    <s:String x:Key="ContentAfter">内容文本插入字符后的结果：2</s:String>
+    <s:String x:Key="UcTextInsertTip">提示：为空时默认生成为SQL语句的IN参数文本2</s:String>
+    <s:String x:Key="TextAgo">输入前缀字符2</s:String>
+    <s:String x:Key="TextAfter">输入后缀字符2</s:String>
+    <s:String x:Key="ContentText">文本内容2</s:String>
+    <s:String x:Key="PleaseContentText">请输入内容文本2</s:String>
+    <s:String x:Key="Entered">已输入2</s:String>
+    <s:String x:Key="AllTotal">共2</s:String>
+    <s:String x:Key="Word">字,2</s:String>
+    <s:String x:Key="Row">行2</s:String>
+    <s:String x:Key="UcTextInsert">文本两端插入字符2</s:String>
+    <!--UcToolMenu-->
+    <s:String x:Key="StrCount">字数统计2</s:String>
+    <s:String x:Key="Ico">Ico图标生成2</s:String>
+    <!--UcWordCount-->
+    <s:String x:Key="Compress">压缩2</s:String>
+    <s:String x:Key="StatisticalResults">统计结果2</s:String>
+    <s:String x:Key="Chinese">汉字字数2</s:String>
+    <s:String x:Key="Letters">字母字数2</s:String>
+    <s:String x:Key="Number">数字字数2</s:String>
+    <s:String x:Key="Punctuation">标点字数2</s:String>
+    <s:String x:Key="TotalCount">字数总计2</s:String>
+    <s:String x:Key="TotalCount1">字符总计2</s:String>
+    <s:String x:Key="ShieldTotalRows">行数2</s:String>
+    <s:String x:Key="RuleAfterCount">过滤行数2</s:String>
+    <!--GroupAddView-->
+    <s:String x:Key="GroupAddViewTitle">新增分组2</s:String>
+    <s:String x:Key="Cancel">取消2</s:String>
+    <s:String x:Key="Save">保存2</s:String>
+    <s:String x:Key="NotExpand">不展开2</s:String>
+    <s:String x:Key="ChildNodes">子项节点2</s:String>
+    <s:String x:Key="CurrentNode">当前节点2</s:String>
+    <s:String x:Key="ExpandNodes">展开节点2</s:String>
+    <s:String x:Key="PleaseGroupName">请输入分组名称2</s:String>
+    <s:String x:Key="GroupName">分组名称2</s:String>
+    <!--GroupsView-->
+    <s:String x:Key="Update">修改2</s:String>
+    <s:String x:Key="SearchGroup">搜索分组2</s:String>
+    <s:String x:Key="AddGroup">新增分组2</s:String>
+    <!--SetTag-->
+    <s:String x:Key="SearchLabel">搜索标签2</s:String>
+    <!--TagAddView-->
+    <s:String x:Key="PleaseLabelName">请输入标签名称2</s:String>
+    <s:String x:Key="LabelName">标签名称2</s:String>
+    <s:String x:Key="TagAddView">新增标签2</s:String>
+    <!--TestAddView-->
+    <s:String x:Key="TestAddView">新增生成配置2</s:String>
+    <!--ConnectManage-->
+    <s:String x:Key="ConnectManage">连接管理2</s:String>
+    <s:String x:Key="SearchConnect">搜索连接2</s:String>
+    <s:String x:Key="TestConnect">测试连接2</s:String>
+    <s:String x:Key="Back">上一步2</s:String>
+    <s:String x:Key="Connect">连接2</s:String>
+    <!--ExportDoc-->
+    <s:String x:Key="ExportDoc">导出文档2</s:String>
+    <s:String x:Key="DocumentName">文档名称2</s:String>
+    <s:String x:Key="DocumentType">文档类型2</s:String>
+    <s:String x:Key="ExportDocTip">Excel、Word、Html文档仅支持导出表，其他文档类型都支持导出2</s:String>
+    <s:String x:Key="ExportDocPath">导出路径2</s:String>
+    <s:String x:Key="Browse">浏览2</s:String>
+    <s:String x:Key="Export">导出2</s:String>
+    <!--ImportMark-->
+    <s:String x:Key="ImportMark">导入备注2</s:String>
+    <s:String x:Key="ImportFile">导入文件2</s:String>
+    <s:String x:Key="PleaseSelectMarkFile">请选择备注文件2</s:String>
+    <s:String x:Key="PleaseSelectMarkFileTip">当前导出支持pdm/xml文件来进行对象备注(注释)更新2</s:String>
+    <s:String x:Key="PdmTip">pdm 由PowerDesigner设计数据库时产生；2</s:String>
+    <s:String x:Key="XmlTip">xml 由Visual Studio设置实体类库的项目属性,勾选XML文档文件后生成项目时产生；2</s:String>
+    <s:String x:Key="XmlTip1">xml 由H_Assistant导出文档为XML类型而产生；2</s:String>
+    <s:String x:Key="Import">导入2</s:String>
+    <!--ScriptWindow-->
+    <s:String x:Key="ScriptWindowTitle">SQL脚本2</s:String>
+    <!--SettingWindow-->
+    <s:String x:Key="Current">通用2</s:String>
+    <s:String x:Key="ScreenCaptureTab">截图2</s:String>
+    <s:String x:Key="ScreenshotComparison">截图对比2</s:String>
+    <s:String x:Key="CompareTitles">对比窗体标题2</s:String>
+    <s:String x:Key="ScreenshotComparisonKey">截图对比2</s:String>
+    <s:String x:Key="LastScreenshotComparisonKey">上一次截图2</s:String>
+    <s:String x:Key="ScreenshotKey">截图2</s:String>
+    <s:String x:Key="Language">系统语言2</s:String>
+    <s:String x:Key="ChkIsMultipleTab">主窗口多标签展示2</s:String>
+    <s:String x:Key="ChkIsLikeSearch">对象名模糊搜索2</s:String>
+    <s:String x:Key="ChkIsContainsObjName">左侧表、视图菜单包含表备注说明2</s:String>
+    <s:String x:Key="ChkIsShowSaveWin">修改备注时是否弹出保存提示对话框2</s:String>
+    <s:String x:Key="WaterfallPanelList_Groups">工具箱显示数量2</s:String>
+    <!--ToolBox-->
+    <s:String x:Key="DevelopmentKit">开发工具箱2</s:String>
+</ResourceDictionary>

@@ -1,0 +1,179 @@
+<local:BaseUserControl
+    x:Class="H_Assistant.UserControl.UcMainObjects"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+    xmlns:local="clr-namespace:H_Assistant.UserControl"
+    xmlns:localBase="clr-namespace:H_Assistant.UserControl.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+    mc:Ignorable="d">
+    <Grid Background="#ffffff">
+        <!--  对象搜索框  -->
+        <hc:SearchBar
+            x:Name="SearchObject"
+            Height="30"
+            Margin="5,5,5,0"
+            Padding="5,0,5,0"
+            VerticalAlignment="Top"
+            HorizontalContentAlignment="Left"
+            hc:InfoElement.Placeholder="{Binding Placeholder}"
+            Background="#F4F5F7"
+            BorderThickness="0"
+            FontSize="13"
+            ShowClearButton="True"
+            Style="{StaticResource SearchBarPlus}"
+            TextChanged="SearchObject_OnTextChanged" />
+        <!--  结构数据展现框  -->
+        <Border
+            Margin="5,40,5,37"
+            Background="#f9f9f9"
+            CornerRadius="8">
+            <Grid>
+                <DataGrid
+                    x:Name="TableGrid"
+                    hc:DataGridAttach.CanUnselectAllWithBlankArea="True"
+                    hc:DataGridAttach.ShowRowNumber="True"
+                    AutoGenerateColumns="False"
+                    Background="Transparent"
+                    BeginningEdit="TableGrid_OnBeginningEdit"
+                    CellEditEnding="TableGrid_OnCellEditEnding"
+                    ColumnWidth="*"
+                    Cursor="Arrow"
+                    HeadersVisibility="All"
+                    ItemsSource="{Binding ObjectsViewData, Mode=TwoWay}"
+                    MouseDoubleClick="TableGrid_OnMouseDoubleClick"
+                    MouseLeftButtonUp="TableGrid_OnMouseLeftButtonUp"
+                    PreparingCellForEdit="TableGrid_OnPreparingCellForEdit"
+                    RowHeaderWidth="60"
+                    SelectionUnit="CellOrRowHeader">
+                    <!--<DataGrid.CellStyle>
+                        <Style BasedOn="{StaticResource DataGridCellStyle}" TargetType="DataGridCell">
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <EventSetter Event="MouseEnter" Handler="DisplayToolTip_MouseEnter" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="BorderThickness" Value="0" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </DataGrid.CellStyle>-->
+
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn
+                            Width="50"
+                            Binding="{Binding IsChecked}"
+                            CanUserSort="False"
+                            CellStyle="{StaticResource DataGridTextCenterColumnStyle}"
+                            Header="{DynamicResource SelectCheck}" />
+                        <DataGridTextColumn
+                            x:Name="ObjHead"
+                            Binding="{Binding DisplayName}"
+                            Header="{DynamicResource ObjectName}"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Binding="{Binding Comment}"
+                            CanUserSort="False"
+                            Header="{DynamicResource Comment}" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding CreateDate, StringFormat='yyyy-MM-dd'}"
+                            CellStyle="{StaticResource DataGridTextCenterColumnStyle}"
+                            Header="{DynamicResource CreateTime}"
+                            IsReadOnly="True" />
+                        <DataGridTextColumn
+                            Width="100"
+                            Binding="{Binding ModifyDate, StringFormat='yyyy/MM/dd'}"
+                            CellStyle="{StaticResource DataGridTextCenterColumnStyle}"
+                            Header="{DynamicResource UpdateTime}"
+                            IsReadOnly="True" />
+                        <DataGridTemplateColumn Width="100" Visibility="Collapsed">
+                            <DataGridTemplateColumn.CellStyle>
+                                <Style TargetType="DataGridCell">
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                <Grid>
+                                                    <ContentPresenter HorizontalAlignment="Center" />
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Style>
+                            </DataGridTemplateColumn.CellStyle>
+                            <DataGridTemplateColumn.Header>
+                                <TextBlock Text="{DynamicResource Operate}" />
+                            </DataGridTemplateColumn.Header>
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <fa:FontAwesome
+                                        VerticalAlignment="Center"
+                                        Cursor="Hand"
+                                        Foreground="#1890ff"
+                                        Icon="Search"
+                                        ToolTip="{DynamicResource Select}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+                <Grid
+                    x:Name="NoDataText"
+                    Margin="5"
+                    HorizontalAlignment="Stretch"
+                    Background="White"
+                    Cursor="Arrow"
+                    Visibility="Collapsed">
+                    <localBase:NoDataArea
+                        Margin="0"
+                        HorizontalAlignment="Center"
+                        ShowType="Img" />
+                </Grid>
+            </Grid>
+        </Border>
+        <Grid
+            Height="36"
+            VerticalAlignment="Bottom"
+            Background="White"
+            Cursor="Arrow">
+            <hc:SimpleStackPanel
+                Margin="47,0,5,10"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom">
+                <hc:UniformSpacingPanel Spacing="10">
+                    <CheckBox
+                        x:Name="ChkAll"
+                        Margin="39,0,0,0"
+                        Click="ChkAll_OnClick"
+                        Content="{DynamicResource ChkAll}" />
+                </hc:UniformSpacingPanel>
+            </hc:SimpleStackPanel>
+            <hc:SimpleStackPanel
+                Margin="5,0,5,5"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Bottom">
+                <hc:UniformSpacingPanel Spacing="10">
+                    <Button
+                        x:Name="BtnExportTemplate"
+                        Height="26"
+                        hc:IconElement.Geometry="{StaticResource FileGeometry}"
+                        Click="BtnExportTemplate_OnClick"
+                        Content="{DynamicResource ExportTemplate}"
+                        Cursor="Hand"
+                        Style="{StaticResource ButtonPrimary}" />
+                    <Button
+                        x:Name="BtnExport"
+                        Height="26"
+                        hc:IconElement.Geometry="{StaticResource ExportGeometry}"
+                        Click="BtnExport_OnClick"
+                        Content="{DynamicResource ExportDocument}"
+                        Cursor="Hand"
+                        Style="{StaticResource ButtonSuccess}" />
+                </hc:UniformSpacingPanel>
+            </hc:SimpleStackPanel>
+        </Grid>
+    </Grid>
+</local:BaseUserControl>

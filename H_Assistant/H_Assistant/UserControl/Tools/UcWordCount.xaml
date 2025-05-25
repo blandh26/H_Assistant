@@ -1,0 +1,68 @@
+﻿<local:BaseUserControl
+    x:Class="H_Assistant.UserControl.UcWordCount"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:H_Assistant.UserControl"
+    xmlns:localControls="clr-namespace:H_Assistant.UserControl.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:H_Assistant.Models"
+    xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    xmlns:userControl="clr-namespace:H_Assistant.UserControl"
+    d:DesignHeight="750"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Border Margin="5" Background="White" CornerRadius="8">
+        <Grid Margin="18">
+            <Grid Height="40" Margin="0,-5,0,0" VerticalAlignment="Top" Background="#f9f9f9">
+                <StackPanel Orientation="Horizontal">
+                    <fa:FontAwesome Margin="10,0,0,0" VerticalAlignment="Center" Foreground="#5c6b77" Icon="Inbox" />
+                    <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Foreground="#5c6b77" Text="{DynamicResource Toolbox}"></TextBlock>
+                    <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Foreground="#5c6b77"> /</TextBlock>
+                    <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Foreground="#5c6b77" Text="{DynamicResource StrCount}"></TextBlock>
+                </StackPanel>
+                <TextBlock  Margin="10,10,10,0"  HorizontalAlignment="Center"  VerticalAlignment="Top"  Text="{DynamicResource StrCount}" />
+                <Button x:Name="BtnReturn" Width="60" Height="28" Margin="0,0,8,0" HorizontalAlignment="Right" BorderThickness="0.4" Click="BtnReturn_Click" Content="{DynamicResource Return}" Cursor="Hand" />
+            </Grid>
+            <Border Margin="0,45,0,0" Background="#f9f9f9" CornerRadius="8">
+                <Grid>
+                    <avalonedit:TextEditor x:Name="TextEditor" Margin="10,10,200,49" Padding="0,5,5,5" HorizontalAlignment="Stretch"
+                                           ShowLineNumbers="True" TextChanged="TextEditor_OnTextChanged" WordWrap="True">
+                        <avalonedit:TextEditor.Options>
+                            <avalonedit:TextEditorOptions ShowSpaces="False">
+                                <avalonedit:TextEditorOptions.ColumnRulerPosition>
+                                    <system:Int32>10</system:Int32>
+                                </avalonedit:TextEditorOptions.ColumnRulerPosition>
+                            </avalonedit:TextEditorOptions>
+                        </avalonedit:TextEditor.Options>
+                    </avalonedit:TextEditor>
+                    <Border Width="180" Margin="10,10,10,49" HorizontalAlignment="Right" Background="White" CornerRadius="8">
+                        <StackPanel Margin="10">
+                            <TextBlock HorizontalAlignment="Center"  Text="{DynamicResource StatisticalResults}" />
+                            <hc:Shield Name="ShieldHanZi" Margin="0,20,0,0" Status="0" Subject="{DynamicResource Chinese}" Color="#1890ff" />
+                            <hc:Shield Name="ShieldZiMu" Margin="0,10,0,0" Status="0" Subject="{DynamicResource Letters}" Color="#faad14" />
+                            <hc:Shield Name="ShieldShuZi" Margin="0,10,0,0" Status="0" Subject="{DynamicResource Number}" Color="#21d86e" />
+                            <hc:Shield Name="ShieldBiaoDian" Margin="0,10,0,0" Status="0" Subject="{DynamicResource Punctuation}" Color="#d8624c" />
+                            <hc:Shield Name="ShieldTotalZiShu" Margin="0,10,0,0" Status="0" Subject="{DynamicResource TotalCount}" Color="#ff9c6e" />
+                            <hc:Shield Name="ShieldTotalZiFu" Margin="0,10,0,0" Status="0" Subject="{DynamicResource TotalCount1}" Color="#4eb899" />
+                            <hc:Shield Name="ShieldTotalRows" Margin="0,10,0,0" Status="0" Subject="{DynamicResource ShieldTotalRows}" Color="#FFD700" />
+                            <hc:Shield Name="ShieldTotalRuleAfter" Margin="0,10,0,0" Status="0" Subject="{DynamicResource RuleAfterCount}" Color="#DC143C" />
+                        </StackPanel>
+                    </Border>
+                    <StackPanel Height="30" Margin="10,0,10,10" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Orientation="Horizontal">
+                        <Button x:Name="BtnFormatter" Width="80" Height="28" hc:IconElement.Geometry="{StaticResource CodeEGeometry}" Click="BtnFormatter_Click" Content="{DynamicResource Format}" Cursor="Hand"/>
+                        <Button x:Name="BtnCompress" Width="80" Height="28" hc:IconElement.Geometry="{StaticResource YaSuoGeometry}" Click="BtnCompress_Click" Content="{DynamicResource Compress}" Cursor="Hand" Margin="20,0,0,0"/>
+                        <Button x:Name="BtnCopy" Width="80" Height="28" hc:IconElement.Geometry="{StaticResource Copy}" Click="BtnCopy_Click" Content="{DynamicResource BtnCopyScript}" Cursor="Hand" Margin="20,0,0,0"/>
+                        <Button x:Name="BtnClear" Width="80" Height="28" hc:IconElement.Geometry="{StaticResource ClearGeometry}" Click="BtnClear_Click" Content="{DynamicResource Empty}" Cursor="Hand" Margin="20,0,0,0"/>
+                        <Button x:Name="BtnRegReplace" Width="100" Height="28" hc:IconElement.Geometry="{StaticResource Replace}" Click="BtnRegReplace_Click" Content="{DynamicResource RegReplace}" Cursor="Hand" Margin="20,0,0,0"/>
+                        <Button x:Name="BtnSetting" Width="80" Height="28" hc:IconElement.Geometry="{StaticResource Setting}" Click="BtnSetting_Click" Content="{DynamicResource Seting}" Cursor="Hand" Margin="20,0,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</local:BaseUserControl>

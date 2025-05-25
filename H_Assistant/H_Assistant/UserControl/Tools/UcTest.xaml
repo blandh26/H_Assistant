@@ -1,0 +1,56 @@
+﻿<userControl:BaseUserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+    xmlns:local="clr-namespace:H_Assistant.UserControl"
+    xmlns:localControls="clr-namespace:H_Assistant.UserControl.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:H_Assistant.Models"
+    xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+    xmlns:userControl="clr-namespace:H_Assistant.UserControl"
+    x:Class="H_Assistant.UserControl.UcTest"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Grid Background="#ffffff" Margin="5">
+
+        <Border Background="#f9f9f9" CornerRadius="8" VerticalAlignment="Top" Padding="10">
+            <hc:SimpleStackPanel VerticalAlignment="Top" >
+                <hc:UniformSpacingPanel Spacing="10">
+                    <Button x:Name="BtnSelect" hc:IconElement.Geometry="{StaticResource Fa_Regular_FileExcel}" Content="{DynamicResource UcTestSelectExcel}" Click="BtnSelect_Click"/>
+                    <Button x:Name="BtnInsert" hc:IconElement.Geometry="{StaticResource AddGeometry}" Content="{DynamicResource UcTestExcelInsert}" Click="BtnInsert_Click"/>
+                    <Button x:Name="BtnRevert" hc:IconElement.Geometry="{StaticResource Fa_Regular_WindowRestore}" Content="{DynamicResource UcTestRecover}" Click="BtnRevert_Click"/>
+                    <hc:Divider LineStrokeThickness="1" LineStroke="{DynamicResource DarkPrimaryBrush}" Orientation="Vertical" MaxHeight="18"/>
+                    <Button x:Name="BtnClear" hc:IconElement.Geometry="{StaticResource ClearGeometry}" Content="{DynamicResource UcTestEmpty}" Click="BtnClear_Click"/>
+                    <Button x:Name="BtnKeywords" hc:IconElement.Geometry="{StaticResource Fa_Regular_FileWord}" Content="{DynamicResource UcTestKeyword}" Click="BtnKeywords_Click"/>
+                </hc:UniformSpacingPanel>
+                <hc:UniformSpacingPanel Spacing="10" Margin="0,10,0,0">
+                    <ComboBox x:Name="cmbSheet" hc:InfoElement.Title="{DynamicResource UcTestSheet}" Style="{StaticResource ComboBoxExtend}" BorderThickness="0" Width="160"
+                              hc:InfoElement.TitlePlacement="Left" SelectionChanged="cmbSheet_SelectionChanged">
+                    </ComboBox>
+                    <ComboBox x:Name="cmbPlan" hc:InfoElement.Title="{DynamicResource UcTestPlan}" Style="{StaticResource ComboBoxExtend}" BorderThickness="0" Width="160"
+                              hc:InfoElement.TitlePlacement="Left" SelectionChanged="cmbPlan_SelectionChanged">
+                    </ComboBox>
+                    <ComboBox x:Name="ComTable" hc:InfoElement.Title="{DynamicResource UcTestTable}" Style="{StaticResource ComboBoxExtend}" BorderThickness="0" Width="535"
+                              hc:InfoElement.TitlePlacement="Left" >
+                    </ComboBox>
+                </hc:UniformSpacingPanel>
+            </hc:SimpleStackPanel>
+        </Border>
+        <Border Background="#f9f9f9" CornerRadius="8" VerticalAlignment="Top" Margin="0,95,0,0" Padding="6">
+            <avalonedit:TextEditor x:Name="txtLog" Background="#f9f9f9" HorizontalAlignment="Stretch" ShowLineNumbers="True" WordWrap="True" IsReadOnly="False">
+                <avalonedit:TextEditor.Options>
+                    <avalonedit:TextEditorOptions ShowSpaces="False">
+                        <avalonedit:TextEditorOptions.ColumnRulerPosition>
+                            <system:Int32>10</system:Int32>
+                        </avalonedit:TextEditorOptions.ColumnRulerPosition>
+                    </avalonedit:TextEditorOptions>
+                </avalonedit:TextEditor.Options>
+            </avalonedit:TextEditor>
+        </Border>
+    </Grid>
+</userControl:BaseUserControl>

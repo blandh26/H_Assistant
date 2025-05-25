@@ -1,0 +1,60 @@
+﻿<local:BaseUserControl
+    x:Class="H_Assistant.UserControl.UcBase64"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:H_Assistant.UserControl"
+    xmlns:localControls="clr-namespace:H_Assistant.UserControl.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="clr-namespace:H_Assistant.Models"
+    xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+    xmlns:userControl="clr-namespace:H_Assistant.UserControl"
+    d:DesignHeight="450"
+    d:DesignWidth="800"
+    mc:Ignorable="d">
+    <Border Margin="5" Background="White" CornerRadius="8">
+        <Grid Margin="18">
+            <Grid Height="40" Margin="0,-5,0,0" VerticalAlignment="Top" Background="#f9f9f9">
+                <StackPanel Orientation="Horizontal">
+                    <fa:FontAwesome Margin="10,0,0,0"  VerticalAlignment="Center" Foreground="#5c6b77" Icon="Inbox" />
+                    <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Foreground="#5c6b77" Text="{DynamicResource Toolbox}"/>
+                    <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Foreground="#5c6b77" Text="/"/>
+                    <TextBlock Margin="5,0,0,0" VerticalAlignment="Center" Foreground="#5c6b77" Text="{DynamicResource Base64}"/>
+                </StackPanel>
+
+                <TextBlock Margin="10,10,10,0" HorizontalAlignment="Center" VerticalAlignment="Top" Style="{StaticResource TextBlockSubTitleBold}" Text="{DynamicResource Base64}" />
+                <Button x:Name="BtnReturn" Width="60" Height="28" Margin="0,0,8,0" HorizontalAlignment="Right" BorderThickness="0.4" Click="BtnReturn_Click" Content="{DynamicResource Return}" Cursor="Hand" />
+            </Grid>
+
+            <Border Margin="0,43,0,0" VerticalAlignment="Stretch" Background="#f9f9f9"  CornerRadius="8">
+                <StackPanel>
+                    <TextBox
+                        Name="TextInput"
+                        Height="150"
+                        Margin="15,10,15,0"
+                        HorizontalAlignment="Stretch"
+                        VerticalContentAlignment="Top"
+                        hc:InfoElement.Placeholder="{DynamicResource PleaseConversionContent}"
+                        hc:InfoElement.Title="{DynamicResource PleaseConversionContentBase64}"
+                        Style="{StaticResource TextBoxExtend}"
+                        TextWrapping="Wrap" />
+                    <StackPanel Margin="15,15,0,0" HorizontalAlignment="Left" Orientation="Horizontal">
+                        <Button x:Name="BtnEncode" Width="115" Height="28" Margin="0,0,10,0" 
+                                Click="BtnEncode_Click" Content="{DynamicResource Encode}" Cursor="Hand" Style="{StaticResource ButtonSuccess}" />
+                        <Button x:Name="BtnDecode" Width="115" Height="28" Margin="0,0,10,0" 
+                                Click="BtnDecode_Click" Content="{DynamicResource Decode}" Cursor="Hand" Style="{StaticResource ButtonWarning}" />
+                        <Button x:Name="BtnExchange" Width="80" Height="28" Margin="0,0,10,0"
+                            hc:IconElement.Geometry="{StaticResource UpDownGeometry}" BorderThickness="0.4" Click="BtnExchange_Click" Content="{DynamicResource Exchange}" Cursor="Hand" />
+                        <Button x:Name="BtnClear" Width="80" Height="28" hc:IconElement.Geometry="{StaticResource ClearGeometry}" 
+                                BorderThickness="0.4" Click="BtnClear_Click" Content="{DynamicResource Empty}" Cursor="Hand" />
+                    </StackPanel>
+                    <TextBox x:Name="TextOutput" Height="150" Margin="15,10,15,0" HorizontalAlignment="Stretch" VerticalContentAlignment="Top" 
+                             hc:InfoElement.Placeholder="{DynamicResource ConversionResults}" hc:InfoElement.Title="{DynamicResource Base64Result}" 
+                             Style="{StaticResource TextBoxExtend}" TextWrapping="Wrap" />
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
+</local:BaseUserControl>

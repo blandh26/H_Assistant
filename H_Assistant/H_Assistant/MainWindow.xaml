@@ -1,0 +1,213 @@
+<hc:GlowWindow
+    x:Class="H_Assistant.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:fa="http://schemas.fontawesome.io/icons/"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:svgc="http://sharpvectors.codeplex.com/svgc/"
+    xmlns:userControl="clr-namespace:H_Assistant.UserControl"
+    Title="{DynamicResource Title}"
+    Width="1024"
+    Height="500"
+    hc:Dialog.Token="MainDialog"
+    ActiveGlowColor="Transparent"
+    BorderThickness="0"
+    Loaded="MainWindow_OnLoaded"
+    Closing="GlowWindow_Closing"
+    ResizeMode="CanResize"
+    ShowTitle="True"
+    SnapsToDevicePixels="True"
+    Style="{StaticResource WindowGlow}"
+    UseLayoutRounding="True"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d" 
+    Icon="favicon.ico">
+    <!--  顶部栏菜单  -->
+    <hc:GlowWindow.NonClientAreaContent>
+        <StackPanel Height="29" Margin="25,0,0,0">
+            <Menu HorizontalAlignment="Left">
+                <!--  选择连接  -->
+                <MenuItem x:Name="SwitchMenu" Click="SwitchMenu_OnClick" Cursor="Hand" FontWeight="Bold" Foreground="{DynamicResource DarkPrimaryBrush}" Header="{DynamicResource Connection}" >
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource DownGeometry}" Fill="{DynamicResource DarkPrimaryBrush}" Stretch="Uniform" />
+                    </MenuItem.Icon>
+                    <MenuItem.ItemContainerStyle>
+                        <Style BasedOn="{StaticResource MenuItemBaseStyle}" TargetType="MenuItem">
+                            <Setter Property="Height" Value="30" />
+                            <Setter Property="Padding" Value="-16,0,0,2" />
+                            <Setter Property="Width" Value="250" />
+                            <Setter Property="HorizontalAlignment" Value="Left" />
+                            <Setter Property="VerticalAlignment" Value="Center" />
+                            <Setter Property="Margin" Value="0,0,-55,0" />
+                        </Style>
+                    </MenuItem.ItemContainerStyle>
+                    <MenuItem.ItemTemplate>
+                            <HierarchicalDataTemplate>
+                                <MenuItem Padding="0" HorizontalAlignment="Left" VerticalAlignment="Stretch" Click="SwitchMenu_Click" Cursor="Hand" FontWeight="Normal" Header="{Binding ConnectName}">
+                                    <MenuItem.Icon>
+                                        <svgc:SvgViewbox Width="16" Height="16" HorizontalAlignment="Left" IsHitTestVisible="False" Source="{Binding Icon}" />
+                                    </MenuItem.Icon>
+                                </MenuItem>
+                            </HierarchicalDataTemplate>
+                    </MenuItem.ItemTemplate>
+                </MenuItem>
+
+                <!--  文件  -->
+                <MenuItem Name="MenuConnect" Cursor="Hand" FontWeight="Bold" Foreground="{DynamicResource DarkPrimaryBrush}" Header="{DynamicResource File}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource FileGeometry}" Fill="{DynamicResource DarkPrimaryBrush}" Stretch="Uniform" />
+                    </MenuItem.Icon>
+                    <MenuItem Name="AddConnect" Click="AddConnect_OnClick" FontWeight="Normal" Header="{DynamicResource NewConnection}">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource NewConnectGeometry}" Fill="#ff7c4b" Stretch="Uniform" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Name="ImportMark" Click="ImportMark_OnClick" FontWeight="Normal" Header="{DynamicResource ImportNotes}">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource ImportGeometry}" Fill="{DynamicResource WarningBrush}" Stretch="Uniform" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Name="ExportDoc" Click="ExportDoc_OnClick" FontWeight="Normal" Header="{DynamicResource File}">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource ExportGeometry}" Fill="{DynamicResource SuccessBrush}" Stretch="Uniform" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Name="ExportTemplate" Click="ExportTemplate_OnClick" FontWeight="Normal" Header="{DynamicResource ExportTemplate}">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource ExportGeometry}" Fill="#006eff" Stretch="Uniform" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <!--  工具  -->
+                <MenuItem Name="MenuGroup" Cursor="Hand" FontWeight="Bold" Foreground="{DynamicResource DarkPrimaryBrush}" Header="{DynamicResource Tools}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource GroupGeometry}" Fill="{DynamicResource DarkPrimaryBrush}" Stretch="Uniform" />
+                    </MenuItem.Icon>
+                    <MenuItem Name="MenuGroupManage" Click="MenuGroup_OnClick" FontWeight="Normal" Header="{DynamicResource GroupManagement}">
+                        <MenuItem.Icon>
+                            <fa:FontAwesome VerticalAlignment="Center" Foreground="#fdab03" Icon="Group" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Name="MenuTag" Click="MenuTag_Click" FontWeight="Normal" Header="{DynamicResource LabelManagement}" IsEnabled="True">
+                        <MenuItem.Icon>
+                            <fa:FontAwesome VerticalAlignment="Center" FontSize="14" Foreground="#15c8c4" Icon="Tags" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <!--生成配置-->
+                    <!--<MenuItem Name="MenuTest" Click="MenuTest_Click" FontWeight="Normal" Header="{DynamicResource BuildConfiguration}" IsEnabled="True">
+                        <MenuItem.Icon>
+                            <fa:FontAwesome VerticalAlignment="Center" FontSize="14" Foreground="#2db84d" Icon="Cogs" />
+                        </MenuItem.Icon>
+                    </MenuItem>-->
+                </MenuItem>
+                <MenuItem Name="MenuSetting" Cursor="Hand" FontWeight="Bold" Foreground="{DynamicResource DarkPrimaryBrush}" Click="MenuSetting_OnClick" Header="{DynamicResource Seting}">
+                    <MenuItem.Icon >
+                        <Path Data="{StaticResource Fa_Config}" Fill="{DynamicResource DarkPrimaryBrush}" Stretch="Uniform" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <!--  关于  -->
+                <MenuItem Name="MenuAbout" Cursor="Hand" FontWeight="Bold" Foreground="{DynamicResource DarkPrimaryBrush}" Header="{DynamicResource Help}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource InfoGeometry}" Fill="{DynamicResource DarkPrimaryBrush}" Stretch="Uniform" />
+                    </MenuItem.Icon>
+                    <MenuItem Name="MenuCheckUpdate" Command="hc:ControlCommands.OpenLink"
+                        CommandParameter="https://github.com/blandh26"
+                        FontWeight="Normal" Header="{DynamicResource CheckUpdates}">
+                        <MenuItem.Icon>
+                            <fa:FontAwesome VerticalAlignment="Center" FontSize="14" Foreground="#ff6584" Icon="Diamond" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Name="MenuAboutThis" Click="MenuAbout_OnClick" FontWeight="Normal" Header="{DynamicResource About}">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource InfoGeometry}" Fill="#ff9c6e" Stretch="Uniform" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <!--  置顶  -->
+                <MenuItem Name="MenuTopping" Cursor="Hand" FontWeight="Bold" Foreground="{DynamicResource DarkPrimaryBrush}" Click="MenuTopping_Click" Header="{DynamicResource Topping}">
+                    <MenuItem.Icon >
+                        <Path x:Name="MenuTopping_Icon" Data="{StaticResource Pin}" Fill="{DynamicResource DarkPrimaryBrush}" Stretch="Uniform" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+    </hc:GlowWindow.NonClientAreaContent>
+    <!--  顶部栏菜单  -->
+
+    <!--  Main区域  -->
+    <Grid Background="{StaticResource CloudDrawingBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="110" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel Grid.Column="0">
+            <Border Margin="5,5,0,5" Background="#ffffff" CornerRadius="10">
+                <ListBox x:Name="LeftMenu" Margin="0,10,0,10" Background="Transparent" BorderThickness="0">
+                    <ListBox.ItemContainerStyle>
+                        <Style BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
+                            <Setter Property="Height" Value="50" />
+                            <Setter Property="Margin" Value="4,3,4,3" />
+                            <Setter Property="Cursor" Value="Hand" />
+                            <Setter Property="Foreground" Value="#727E96" />
+                            <Setter Property="Background" Value="#ffffff" />
+                            <Setter Property="HorizontalAlignment" Value="Stretch" />
+                            <Setter Property="HorizontalContentAlignment" Value="Center" />
+                            <Style.Triggers>
+                                <Trigger Property="IsSelected" Value="True">
+                                    <Setter Property="Background" Value="#F4F5F7" />
+                                    <Setter Property="Foreground" Value="#417FF9" />
+                                </Trigger>
+                            </Style.Triggers>
+                            <Style.Resources>
+                                <Style TargetType="Border">
+                                    <Setter Property="CornerRadius" Value="15" />
+                                </Style>
+                            </Style.Resources>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                    <ListBoxItem x:Name="MenuManager" IsSelected="True" Selected="MenuManager_Selected">
+                        <StackPanel>
+                            <fa:FontAwesome FontSize="16" Icon="Book" />
+                            <TextBlock Margin="0,5,0,0" Text="{DynamicResource Database}" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="MenuTool" IsEnabled="True" Selected="MenuTool_Selected">
+                        <StackPanel>
+                            <fa:FontAwesome FontSize="16" Icon="Inbox" />
+                            <TextBlock Margin="0,5,0,0" Text="{DynamicResource Toolbox}" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="MenuClipboard" IsEnabled="True" Selected="MenuClipboard_Selected">
+                        <StackPanel>
+                            <fa:FontAwesome FontSize="16" Icon="Clipboard" />
+                            <TextBlock Margin="0,5,0,0" Text="{DynamicResource Clipboard}" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="MenuPort" IsEnabled="True" Selected="MenuPort_Selected">
+                        <StackPanel>
+                            <fa:FontAwesome FontSize="16" Icon="Microchip" />
+                            <TextBlock Margin="0,5,0,0" Text="{DynamicResource PortTitle}" />
+                        </StackPanel>
+                    </ListBoxItem>
+                    <ListBoxItem x:Name="MenuTestMain" IsEnabled="True" Selected="MenuTest_Selected">
+                        <StackPanel>
+                            <fa:FontAwesome FontSize="16" Icon="Television" />
+                            <TextBlock Margin="0,5,0,0" Text="{DynamicResource TestTitle}" />
+                        </StackPanel>
+                    </ListBoxItem>
+                </ListBox>
+            </Border>
+        </DockPanel>
+        <DockPanel x:Name="DockUcManager" Grid.Column="1" Visibility="Visible">
+            <!--  库表管理  -->
+            <userControl:UcMainContent x:Name="MainContent" />
+        </DockPanel>
+        <DockPanel x:Name="DockUcTools" Grid.Column="1" Visibility="Collapsed">
+            <!--  工具箱  -->
+            <UserControl x:Name="UcMainTools" />
+        </DockPanel>
+    </Grid>
+    <!--  Main区域  -->
+</hc:GlowWindow>

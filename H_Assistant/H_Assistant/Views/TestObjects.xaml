@@ -1,0 +1,65 @@
+﻿<hc:Window
+    x:Class="H_Assistant.Views.TestObjects"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+    xmlns:controls="clr-namespace:H_Assistant.UserControl.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:hc="https://handyorg.github.io/handycontrol"
+    xmlns:local="clr-namespace:H_Assistant.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    Title="{DynamicResource BuildConfiguration}"
+    Width="1024"
+    Height="500"
+    Loaded="TestObjects_OnLoaded"
+    BorderThickness="0"
+    Icon="../Resources/Img/sqlScript.ico"
+    ResizeMode="CanResize"
+    ShowInTaskbar="False"
+    WindowStartupLocation="CenterScreen"
+    mc:Ignorable="d">
+    <Grid Background="#ffffff">
+        <Grid Background="#ffffff">
+            <!--  列名搜索框  -->
+            <hc:SearchBar x:Name="SearchColumns" Height="30" Margin="5,5,5,0" Padding="5,0,5,0" VerticalAlignment="Top"
+                          HorizontalContentAlignment="Left" hc:InfoElement.Placeholder="{DynamicResource ColumnName_Remark}" Background="#F4F5F7" BorderThickness="0" FontSize="13"
+                          ShowClearButton="True" TextChanged="SearchColumns_OnTextChanged" />
+            <!--  结构数据展现框  -->
+            <Border Margin="5,40,5,37" Background="#f9f9f9" CornerRadius="8">
+                <DataGrid x:Name="TableGrid" hc:DataGridAttach.CanUnselectAllWithBlankArea="True" hc:DataGridAttach.ShowRowNumber="True"
+                          AutoGenerateColumns="False" Background="Transparent" Cursor="Arrow" HeadersVisibility="All" ItemsSource="{Binding ObjectColumns}"
+                          RowHeaderWidth="60" SelectedCellsChanged="TableGrid_OnSelectedCellsChanged" SelectionChanged="Handled_OnSelectionChanged" SelectionUnit="CellOrRowHeader">
+                    <DataGrid.CellStyle>
+                        <Style BasedOn="{StaticResource DataGridCellStyle}" TargetType="DataGridCell">
+                            <Setter Property="ToolTip" Value="{Binding RelativeSource={RelativeSource Mode=Self}, Path=Content.Text}" />
+                        </Style>
+                    </DataGrid.CellStyle>
+                    <DataGrid.Columns>
+                        <DataGridCheckBoxColumn Width="50" Binding="{Binding IsChecked}" CanUserSort="False" CellStyle="{StaticResource DataGridTextCenterColumnStyle}" Header="{DynamicResource SelectCheck}" />
+                        <DataGridTextColumn Binding="{Binding Name}" Header="{DynamicResource ColumnName}" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding DataType}" CellStyle="{StaticResource DataGridTextCenterColumnStyle}" Header="{DynamicResource DataType}" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding LengthName}" CellStyle="{StaticResource DataGridTextCenterColumnStyle}" Header="{DynamicResource Length}" IsReadOnly="True" />
+                        <DataGridCheckBoxColumn Binding="{Binding IsPrimaryKey}" CellStyle="{StaticResource DataGridTextCenterColumnStyle}" Header="{DynamicResource Pk}" IsReadOnly="True" />
+                        <DataGridCheckBoxColumn Binding="{Binding IsIdentity}" CellStyle="{StaticResource DataGridTextCenterColumnStyle}" Header="{DynamicResource IsIdentity}" IsReadOnly="True" />
+                        <DataGridCheckBoxColumn Binding="{Binding IsNullable}" CellStyle="{StaticResource DataGridTextCenterColumnStyle}" Header="{DynamicResource IsNullable}" IsReadOnly="True" />
+                        <DataGridTextColumn Binding="{Binding DefaultValue}" CellStyle="{StaticResource DataGridTextCenterColumnStyle}" Header="{DynamicResource DefaultValue}" IsReadOnly="True" />
+                        <DataGridTextColumn Width="*" Binding="{Binding Comment}" IsReadOnly="True"  Header="{DynamicResource Comment}" />
+                        <DataGridTextColumn Width="*" Binding="{Binding Comment}" IsReadOnly="True"  Header="{DynamicResource BuildConfiguration}" />
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+        <Grid Height="45" VerticalAlignment="Bottom" Background="White" Cursor="Arrow">
+            <hc:SimpleStackPanel Margin="10,0,10,10" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                <hc:UniformSpacingPanel Spacing="10">
+                    <CheckBox x:Name="ChkAll" Click="ChkAll_OnClick" Content="{DynamicResource ChkAll}" />
+                    <ComboBox x:Name="ComboDefaultDatabase" Height="30" VerticalAlignment="Top" HorizontalContentAlignment="Stretch" hc:BorderElement.CornerRadius="5"
+                              hc:InfoElement.Placeholder="{DynamicResource PleaseDefaultDatabase}" Background="#F4F5F7" BorderThickness="0" Cursor="Hand" IsTextSearchEnabled="True" Style="{StaticResource ComboBoxExtend}">
+                    </ComboBox>
+                    <Button x:Name="BtnExport" Height="26" Style="{StaticResource ButtonPrimary}" Click="BtnExport_OnClick" Content="{DynamicResource Save}" Cursor="Hand" />
+                </hc:UniformSpacingPanel>
+            </hc:SimpleStackPanel>
+        </Grid>
+    </Grid>
+</hc:Window>
