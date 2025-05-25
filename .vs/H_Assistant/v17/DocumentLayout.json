@@ -1,25 +1,29 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\Code\\MyGithub\\MyCode\\H_Assistant\\",
+  "WorkspaceRootPath": "E:\\Code\\MyGithub\\H_Assistant\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|e:\\code\\mygithub\\mycode\\h_assistant\\h_assistant\\h_assistant.framework\\exporter\\mysqlexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{84E6E445-CFE0-4F01-B815-14F69F682EB9}|H_Assistant\\H_Assistant.DocUtils\\H_Assistant.DocUtils.csproj|e:\\code\\mygithub\\h_assistant\\h_assistant\\h_assistant.docutils\\js.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{84E6E445-CFE0-4F01-B815-14F69F682EB9}|H_Assistant\\H_Assistant.DocUtils\\H_Assistant.DocUtils.csproj|solutionrelative:h_assistant\\h_assistant.docutils\\js.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|e:\\code\\mygithub\\h_assistant\\h_assistant\\h_assistant.framework\\exporter\\mysqlexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|solutionrelative:h_assistant\\h_assistant.framework\\exporter\\mysqlexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|e:\\code\\mygithub\\mycode\\h_assistant\\h_assistant\\h_assistant.framework\\exporter\\sqlserverexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|E:\\Code\\MyGithub\\H_Assistant\\h_assistant\\h_assistant.framework\\exporter\\sqlserverexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|solutionrelative:h_assistant\\h_assistant.framework\\exporter\\sqlserverexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|e:\\code\\mygithub\\mycode\\h_assistant\\h_assistant\\h_assistant.framework\\exporter\\postgresqlexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|E:\\Code\\MyGithub\\H_Assistant\\h_assistant\\h_assistant.framework\\exporter\\postgresqlexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|solutionrelative:h_assistant\\h_assistant.framework\\exporter\\postgresqlexporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|e:\\code\\mygithub\\mycode\\h_assistant\\h_assistant\\h_assistant.framework\\exporterfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|E:\\Code\\MyGithub\\H_Assistant\\h_assistant\\h_assistant.framework\\exporterfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|solutionrelative:h_assistant\\h_assistant.framework\\exporterfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|e:\\code\\mygithub\\mycode\\h_assistant\\h_assistant\\h_assistant.framework\\exporter\\exporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|E:\\Code\\MyGithub\\H_Assistant\\h_assistant\\h_assistant.framework\\exporter\\exporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8F686DD2-388C-4D61-A077-3A769059D547}|H_Assistant\\H_Assistant.Framework\\H_Assistant.Framework.csproj|solutionrelative:h_assistant\\h_assistant.framework\\exporter\\exporter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -39,23 +43,36 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "JS.cs",
+              "DocumentMoniker": "E:\\Code\\MyGithub\\H_Assistant\\H_Assistant\\H_Assistant.DocUtils\\JS.cs",
+              "RelativeDocumentMoniker": "H_Assistant\\H_Assistant.DocUtils\\JS.cs",
+              "ToolTip": "E:\\Code\\MyGithub\\H_Assistant\\H_Assistant\\H_Assistant.DocUtils\\JS.cs",
+              "RelativeToolTip": "H_Assistant\\H_Assistant.DocUtils\\JS.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-05-25T14:17:55.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "MySqlExporter.cs",
-              "DocumentMoniker": "E:\\Code\\MyGithub\\MyCode\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\MySqlExporter.cs",
+              "DocumentMoniker": "E:\\Code\\MyGithub\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\MySqlExporter.cs",
               "RelativeDocumentMoniker": "H_Assistant\\H_Assistant.Framework\\Exporter\\MySqlExporter.cs",
-              "ToolTip": "E:\\Code\\MyGithub\\MyCode\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\MySqlExporter.cs",
+              "ToolTip": "E:\\Code\\MyGithub\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\MySqlExporter.cs",
               "RelativeToolTip": "H_Assistant\\H_Assistant.Framework\\Exporter\\MySqlExporter.cs",
-              "ViewState": "AQIAAEsAAAAAAAAAAAAvwE8AAAA7AAAA",
+              "ViewState": "AQIAACYAAAAAAAAAAADwv0oAAAAIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-25T13:48:28.136Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PostgreSqlExporter.cs",
-              "DocumentMoniker": "E:\\Code\\MyGithub\\MyCode\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\PostgreSqlExporter.cs",
+              "DocumentMoniker": "E:\\Code\\MyGithub\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\PostgreSqlExporter.cs",
               "RelativeDocumentMoniker": "H_Assistant\\H_Assistant.Framework\\Exporter\\PostgreSqlExporter.cs",
-              "ToolTip": "E:\\Code\\MyGithub\\MyCode\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\PostgreSqlExporter.cs",
+              "ToolTip": "E:\\Code\\MyGithub\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\PostgreSqlExporter.cs",
               "RelativeToolTip": "H_Assistant\\H_Assistant.Framework\\Exporter\\PostgreSqlExporter.cs",
               "ViewState": "AQIAAAoBAAAAAAAAAIAwwBMBAAAqAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -64,11 +81,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ExporterFactory.cs",
-              "DocumentMoniker": "E:\\Code\\MyGithub\\MyCode\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\ExporterFactory.cs",
+              "DocumentMoniker": "E:\\Code\\MyGithub\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\ExporterFactory.cs",
               "RelativeDocumentMoniker": "H_Assistant\\H_Assistant.Framework\\ExporterFactory.cs",
-              "ToolTip": "E:\\Code\\MyGithub\\MyCode\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\ExporterFactory.cs",
+              "ToolTip": "E:\\Code\\MyGithub\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\ExporterFactory.cs",
               "RelativeToolTip": "H_Assistant\\H_Assistant.Framework\\ExporterFactory.cs",
               "ViewState": "AQIAACgAAAAAAAAAAADgvzMAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -77,11 +94,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "SqlServerExporter.cs",
-              "DocumentMoniker": "E:\\Code\\MyGithub\\MyCode\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\SqlServerExporter.cs",
+              "DocumentMoniker": "E:\\Code\\MyGithub\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\SqlServerExporter.cs",
               "RelativeDocumentMoniker": "H_Assistant\\H_Assistant.Framework\\Exporter\\SqlServerExporter.cs",
-              "ToolTip": "E:\\Code\\MyGithub\\MyCode\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\SqlServerExporter.cs",
+              "ToolTip": "E:\\Code\\MyGithub\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\SqlServerExporter.cs",
               "RelativeToolTip": "H_Assistant\\H_Assistant.Framework\\Exporter\\SqlServerExporter.cs",
               "ViewState": "AQIAAIMBAAAAAAAAAADgv44BAAA2AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
@@ -90,11 +107,11 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "Exporter.cs",
-              "DocumentMoniker": "E:\\Code\\MyGithub\\MyCode\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\Exporter.cs",
+              "DocumentMoniker": "E:\\Code\\MyGithub\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\Exporter.cs",
               "RelativeDocumentMoniker": "H_Assistant\\H_Assistant.Framework\\Exporter\\Exporter.cs",
-              "ToolTip": "E:\\Code\\MyGithub\\MyCode\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\Exporter.cs",
+              "ToolTip": "E:\\Code\\MyGithub\\H_Assistant\\H_Assistant\\H_Assistant.Framework\\Exporter\\Exporter.cs",
               "RelativeToolTip": "H_Assistant\\H_Assistant.Framework\\Exporter\\Exporter.cs",
               "ViewState": "AQIAACIAAAAAAAAAAAAcwC0AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
